@@ -26,17 +26,12 @@ pip install -r requirements.txt
 ```
 
 ## How to Use
-
-Run the script:
-```
-python fft_analysis.py
-```
-
 You will be asked to input:
 
 1. **Path to your data file (.txt)**
 2. **Frequency range to display (fmin fmax)**  
-   - Press Enter to use the default: `0.01 400`
+   - Enter the frequency range (fmin fmax).　
+   - If the plot does not look correct, change the range and run again.
 
 Example input file format:
 ```
