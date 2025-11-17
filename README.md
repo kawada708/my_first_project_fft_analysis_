@@ -1,4 +1,4 @@
-# FFT Analysis Tool (Beginner-Friendly)
+# FFT Analysis Tool (made by beginner)
 
 This is my first public Python analysis code as a beginner researcher. 
 I'm studying thermal convection, 
