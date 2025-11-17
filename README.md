@@ -1,15 +1,15 @@
-#　**FFT Analysis Tool (made by beginner)**
+# FFT Analysis Tool (Beginner-Friendly)
 
 This is my first public Python analysis code as a beginner researcher. 
 I'm studying thermal convection, 
-and I wrote this script to extract dominant frequencies from time-series data (like K(t)) using FFT. 
-I'm not an expert programmer, but I wanted to share this code so that lab members and future students can learn from it and use it as a reference.
+and I wrote this script to extract dominant frequencies from time-series data K(t) using FFT. 
+I'm not an expert programmer, but I wanted to share my learning process and keep my research scripts organized publicly.
 
 ## Notes from a beginner 
 - This is not optimized code. 
 - There may be cleaner or faster ways to write the same analysis. 
 - I will improve this step by step as I learn more. 
-- *"Feedback is always welcome!"*
+- Feedback is always welcome!
 
 
 ## Requirements
