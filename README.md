@@ -62,7 +62,7 @@ If the plot does not look correct, change the range and run again.
 
 The input file should contain two columns:
 
-```json
+```bash
 0.0001  0.0123
 0.0002  0.0131
 0.0003  0.0140
