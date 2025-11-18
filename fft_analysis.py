@@ -4,10 +4,10 @@ from scipy.signal import find_peaks
 
 
 # -----------------------------
-# ƒf[ƒ^“Ç‚İ‚İ
+# ãƒ‡ãƒ¼ã‚¿èª­ã¿è¾¼ã¿
 # -----------------------------
 def load_data(file_path):
-    """ƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚İANumPy”z—ñ‚ğ•Ô‚·"""
+    """ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã¿ã€NumPyé…åˆ—ã‚’è¿”ã™"""
     with open(file_path, "r") as file:
         lines = file.readlines()
 
@@ -21,29 +21,29 @@ def load_data(file_path):
 
 
 # -----------------------------
-# DC¬•ªœ‹
+# DCæˆåˆ†é™¤å»
 # -----------------------------
 def remove_dc(signal):
-    """’¼—¬¬•ªi•½‹Ï’lj‚ğœ‹‚µ‚½M†‚ÆAŒ³‚Ì•½‹Ï’l‚ğ•Ô‚·"""
+    """ç›´æµæˆåˆ†ï¼ˆå¹³å‡å€¤ï¼‰ã‚’é™¤å»ã—ãŸä¿¡å·ã¨ã€å…ƒã®å¹³å‡å€¤ã‚’è¿”ã™"""
     dc_component = np.mean(signal)
     signal_without_dc = signal - dc_component
     return signal_without_dc, dc_component
 
 
 # -----------------------------
-# FFT‚Æƒpƒ[ƒXƒyƒNƒgƒ‹
+# FFTã¨ãƒ‘ãƒ¯ãƒ¼ã‚¹ãƒšã‚¯ãƒˆãƒ«
 # -----------------------------
 def compute_fft(signal_without_dc, time):
-    """’¼—¬¬•ªœ‹Ï‚İM†‚ÆŠÔ”z—ñ‚©‚çAü”g”‚Æƒpƒ[ƒXƒyƒNƒgƒ‹‚ğŒvZ"""
+    """ç›´æµæˆåˆ†é™¤å»æ¸ˆã¿ä¿¡å·ã¨æ™‚é–“é…åˆ—ã‹ã‚‰ã€å‘¨æ³¢æ•°ã¨ãƒ‘ãƒ¯ãƒ¼ã‚¹ãƒšã‚¯ãƒˆãƒ«ã‚’è¨ˆç®—"""
     sampling_interval = time[1] - time[0]
     fs = 1.0 / sampling_interval
 
     fft_result = np.fft.fft(signal_without_dc)
     fft_freqs = np.fft.fftfreq(len(fft_result), 1 / fs)
 
-    power_spectrum = np.abs(fft_result)  # Œ³‚ÌƒR[ƒh‚Æ“¯‚¶’è‹`iU•j
+    power_spectrum = np.abs(fft_result)  # å…ƒã®ã‚³ãƒ¼ãƒ‰ã¨åŒã˜å®šç¾©ï¼ˆæŒ¯å¹…ï¼‰
 
-    # ³‚Ìü”g”‚¾‚¯’Šo
+    # æ­£ã®å‘¨æ³¢æ•°ã ã‘æŠ½å‡º
     mask = fft_freqs >= 0
     positive_freqs = fft_freqs[mask]
     positive_spectrum = power_spectrum[mask]
@@ -52,10 +52,10 @@ def compute_fft(signal_without_dc, time):
 
 
 # -----------------------------
-# ƒs[ƒNŒŸo
+# ãƒ”ãƒ¼ã‚¯æ¤œå‡º
 # -----------------------------
 def detect_peaks(freqs, spectrum, height=0.0):
-    """ƒpƒ[ƒXƒyƒNƒgƒ‹‚©‚çƒs[ƒN‚ğŒŸo‚µ‚ÄA‚»‚Ìü”g”‚Æ’l‚ğ•Ô‚·"""
+    """ãƒ‘ãƒ¯ãƒ¼ã‚¹ãƒšã‚¯ãƒˆãƒ«ã‹ã‚‰ãƒ”ãƒ¼ã‚¯ã‚’æ¤œå‡ºã—ã¦ã€ãã®å‘¨æ³¢æ•°ã¨å€¤ã‚’è¿”ã™"""
     peaks, _ = find_peaks(spectrum, height=height)
     peak_freqs = freqs[peaks]
     peak_values = spectrum[peaks]
@@ -63,28 +63,28 @@ def detect_peaks(freqs, spectrum, height=0.0):
 
 
 # -----------------------------
-# ƒvƒƒbƒg
+# ãƒ—ãƒ­ãƒƒãƒˆ
 # -----------------------------
 def plot_results(time, signal, freqs, spectrum, peak_freqs, peak_values, fmin, fmax):
-    """“ü—ÍM†‚Æƒt[ƒŠƒG•ÏŠ·Œ‹‰Ê‚ğƒvƒƒbƒg‚·‚é"""
+    """å…¥åŠ›ä¿¡å·ã¨ãƒ•ãƒ¼ãƒªã‚¨å¤‰æ›çµæœã‚’ãƒ—ãƒ­ãƒƒãƒˆã™ã‚‹"""
     plt.figure(figsize=(12, 6))
 
-    # “ü—ÍM†
+    # å…¥åŠ›ä¿¡å·
     plt.subplot(2, 1, 1)
     plt.plot(time, signal)
     plt.title("Input Signal")
     plt.xlabel("Time (s)")
     plt.ylabel("K")
 
-    # FFTŒ‹‰Ê
+    # FFTçµæœ
     plt.subplot(2, 1, 2)
     plt.plot(freqs, spectrum)
-    # plt.plot(peak_freqs, peak_values, "ro")  # ƒs[ƒN‚ğ•\¦‚µ‚½‚¢ê‡
+    # plt.plot(peak_freqs, peak_values, "ro")  # ãƒ”ãƒ¼ã‚¯ã‚’è¡¨ç¤ºã—ãŸã„å ´åˆ
     plt.title("Fourier Transform Result (After Removing DC Component)")
     plt.xlabel("Frequency (Hz)")
     plt.ylabel("Power Spectrum")
 
-    # ü”g”•\¦”ÍˆÍ‚ğƒ†[ƒU[w’è‚É
+    # å‘¨æ³¢æ•°è¡¨ç¤ºç¯„å›²ã‚’ãƒ¦ãƒ¼ã‚¶ãƒ¼æŒ‡å®šã«
     plt.xlim(fmin, fmax)
 
     plt.tight_layout()
@@ -95,28 +95,28 @@ def plot_results(time, signal, freqs, spectrum, peak_freqs, peak_values, fmin, f
 # main
 # -----------------------------
 def main():
-    """ƒ†[ƒU[“ü—Í‚Åƒtƒ@ƒCƒ‹ƒpƒX‚Æü”g””ÍˆÍ‚ğó‚¯æ‚è‰ğÍ‚ğÀs"""
+    """ãƒ¦ãƒ¼ã‚¶ãƒ¼å…¥åŠ›ã§ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã¨å‘¨æ³¢æ•°ç¯„å›²ã‚’å—ã‘å–ã‚Šè§£æã‚’å®Ÿè¡Œ"""
 
     # -------------------------
-    # ƒtƒ@ƒCƒ‹ƒpƒX“ü—Í
+    # ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹å…¥åŠ›
     # -------------------------
-    file_path = input("‰ğÍ‚µ‚½‚¢ƒf[ƒ^ƒtƒ@ƒCƒ‹i.txtj‚ÌƒpƒX‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢F\n> ")
+    file_path = input("è§£æã—ãŸã„ãƒ‡ãƒ¼ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ï¼ˆ.txtï¼‰ã®ãƒ‘ã‚¹ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ï¼š\n> ")
 
     try:
         data = load_data(file_path)
     except Exception as e:
-        print(f"\n[ƒGƒ‰[] ƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚ß‚Ü‚¹‚ñ‚Å‚µ‚½F {e}")
+        print(f"\n[ã‚¨ãƒ©ãƒ¼] ãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã‚ã¾ã›ã‚“ã§ã—ãŸï¼š {e}")
         return
 
-    # ƒf[ƒ^’Šo
+    # ãƒ‡ãƒ¼ã‚¿æŠ½å‡º
     time = data[:, 0]
     signal = data[:, 1]
 
     # -------------------------
-    # ü”g””ÍˆÍ“ü—Í
+    # å‘¨æ³¢æ•°ç¯„å›²å…¥åŠ›
     # -------------------------
-    print("\nü”g”•\¦”ÍˆÍ‚ğİ’è‚µ‚Ä‚­‚¾‚³‚¢i—áF0 400j")
-    print("‚»‚Ì‚Ü‚Ü Enter ‚ğ‰Ÿ‚·‚ÆƒfƒtƒHƒ‹ƒg’l (0.01, 400) ‚ğg‚¢‚Ü‚·B")
+    print("\nå‘¨æ³¢æ•°è¡¨ç¤ºç¯„å›²ã‚’è¨­å®šã—ã¦ãã ã•ã„ï¼ˆä¾‹ï¼š0 400ï¼‰")
+    print("ãã®ã¾ã¾ Enter ã‚’æŠ¼ã™ã¨ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ (0.01, 400) ã‚’ä½¿ã„ã¾ã™ã€‚")
 
     user_input = input("fmin fmax > ")
 
@@ -126,31 +126,31 @@ def main():
         try:
             fmin, fmax = map(float, user_input.split())
         except:
-            print("[Œx] “ü—ÍŒ`®‚ª³‚µ‚­‚ ‚è‚Ü‚¹‚ñBƒfƒtƒHƒ‹ƒg’l‚ğg—p‚µ‚Ü‚·B")
+            print("[è­¦å‘Š] å…¥åŠ›å½¢å¼ãŒæ­£ã—ãã‚ã‚Šã¾ã›ã‚“ã€‚ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã‚’ä½¿ç”¨ã—ã¾ã™ã€‚")
             fmin, fmax = 0.01, 400
 
     # -------------------------
-    # FFT ˆ—
+    # FFT å‡¦ç†
     # -------------------------
     signal_wo_dc, _ = remove_dc(signal)
     freqs, spectrum = compute_fft(signal_wo_dc, time)
     peak_freqs, peak_values = detect_peaks(freqs, spectrum)
 
     # -------------------------
-    # ƒs[ƒN•\¦
+    # ãƒ”ãƒ¼ã‚¯è¡¨ç¤º
     # -------------------------
-    print("\nƒs[ƒNü”g”‚Æ‚»‚Ì’l:")
+    print("\nãƒ”ãƒ¼ã‚¯å‘¨æ³¢æ•°ã¨ãã®å€¤:")
     for f, v in zip(peak_freqs, peak_values):
-        print(f"ü”g”: {f:.4f} Hz, ’l: {v:.4e}")
+        print(f"å‘¨æ³¢æ•°: {f:.4f} Hz, å€¤: {v:.4e}")
 
     # -------------------------
-    # ƒvƒƒbƒg
+    # ãƒ—ãƒ­ãƒƒãƒˆ
     # -------------------------
     plot_results(time, signal, freqs, spectrum, peak_freqs, peak_values, fmin, fmax)
 
 
 # -----------------------------
-# ƒXƒNƒŠƒvƒg‚Æ‚µ‚ÄÀs‚³‚ê‚½‚Æ‚«‚¾‚¯ main() ‚ª“®‚­
+# ã‚¹ã‚¯ãƒªãƒ—ãƒˆã¨ã—ã¦å®Ÿè¡Œã•ã‚ŒãŸã¨ãã ã‘ main() ãŒå‹•ã
 # -----------------------------
 if __name__ == "__main__":
     main()
