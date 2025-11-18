@@ -3,7 +3,7 @@
 
 This is my first public Python analysis code as a beginner researcher.
 
-I'm studying thermal convection, and I wrote this script to find dominant frequencies
+I wrote this script to find dominant frequencies
 
 from time-series data (such as K(t)) using FFT.
 
