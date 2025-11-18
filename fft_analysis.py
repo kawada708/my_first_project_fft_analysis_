@@ -41,7 +41,7 @@ def compute_fft(signal_without_dc, time):
     fft_result = np.fft.fft(signal_without_dc)
     fft_freqs = np.fft.fftfreq(len(fft_result), 1 / fs)
 
-    power_spectrum = np.abs(fft_result)  # 元のコードと同じ定義（振幅）
+    power_spectrum = np.abs(fft_result) 
 
     # 正の周波数だけ抽出
     mask = fft_freqs >= 0
@@ -84,7 +84,7 @@ def plot_results(time, signal, freqs, spectrum, peak_freqs, peak_values, fmin, f
     plt.xlabel("Frequency (Hz)")
     plt.ylabel("Power Spectrum")
 
-    # 周波数表示範囲をユーザー指定に
+    # 周波数表示範囲を指定できるように
     plt.xlim(fmin, fmax)
 
     plt.tight_layout()
@@ -152,4 +152,5 @@ def main():
 # -----------------------------
 if __name__ == "__main__":
     main()
+
 
