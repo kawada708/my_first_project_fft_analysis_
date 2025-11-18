@@ -1,5 +1,3 @@
-# 無題
-
 # ***FFT Analysis Tool (made by beginner)***
 
 This is my first public Python analysis code as a beginner researcher.
@@ -12,7 +10,6 @@ I'm not an expert programmer, but I wanted to share this code so that
 
 **lab members and future students can learn from it and use it as a reference.**
 
----
 
 ## **📘 Notes**
 
@@ -22,7 +19,6 @@ I'm not an expert programmer, but I wanted to share this code so that
 - I will improve this step by step as I learn more.
 - ***Feedback is always welcome!***
 
----
 
 ## **🔧Recommended Usage**
 
@@ -44,7 +40,6 @@ because it allows easy visualization and interactive analysis.
 > ```
 > 
 
----
 
 ## 📝How to Use
 
@@ -62,7 +57,6 @@ Example:
 
 If the plot does not look correct, change the range and run again.
 
----
 
 ### **Example input file format**
 
@@ -77,7 +71,6 @@ The input file should contain two columns:
 - 1st column: time
 - 2nd column: signal value (e.g., K(t))
 
----
 
 ## 📊Example Output
 
