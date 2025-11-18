@@ -22,7 +22,8 @@ scipy
 
 Install:
 ```
-pip install -r requirements.txt
+pip install numpy matplotlib scipy
+
 ```
 
 ## How to Use
