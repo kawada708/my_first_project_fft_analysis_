@@ -35,7 +35,7 @@ because it allows easy visualization and interactive analysis.
 > 
 > Install (if needed):
 > 
-> ```json
+> ```bash
 > pip install numpy matplotlib scipy
 > ```
 > 
@@ -51,7 +51,7 @@ When you run the script, you will be asked to input:
 
 Example:
 
-```json
+```bash
 0 400
 ```
 
