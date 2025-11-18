@@ -27,7 +27,7 @@ because it allows easy visualization and interactive analysis.
 
 > (You can also run it from the command line using `python fft_analysis.py`.)
 
-**Requirements**
+>**Requirements**
 > 
 > - numpy
 > - matplotlib
