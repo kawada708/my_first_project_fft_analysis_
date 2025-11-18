@@ -22,7 +22,7 @@
 
 ## **🔧推奨環境**
 
-### Jupyter Lab / Jupyter Notebook での実行を推奨します** 
+### Jupyter Lab / Jupyter Notebook での実行を推奨します
 理由：
 可視化が簡単にでき、研究室内PCであれば追加インストールなしにすぐに実行できるため
 
