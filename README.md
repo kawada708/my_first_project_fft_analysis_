@@ -14,7 +14,7 @@ I'm not an expert programmer, but I wanted to share this code so that
 
 ## **📘 Notes**
 
-- This code includes Japanese comments.
+- **This code includes Japanese comments.**
 - This is not optimized code.
 - There may be cleaner or faster ways to write the same analysis.
 - I will improve this step by step as I learn more.
