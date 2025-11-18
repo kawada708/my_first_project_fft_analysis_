@@ -78,9 +78,9 @@ Here is an example of the FFT result plotted using this script
 
 (using one of the sample data files):
 
-![周波数.png](322c06c0-fd05-453e-a702-f54baee270d1.png)
+![peak_frequency.png](results/frequency.png)
 
-![解析結果図.png](%E8%A7%A3%E6%9E%90%E7%B5%90%E6%9E%9C%E5%9B%B3.png)
+![fft_resul.png](results/Figure.png)
 
 The figure shows:
 
