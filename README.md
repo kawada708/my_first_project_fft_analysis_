@@ -1,3 +1,4 @@
+📘 **English** | 📙 [日本語 README](README_JP.md)
 # ***FFT Analysis Tool (made by beginner)***
 
 This is my first public Python analysis code as a beginner researcher.
